@@ -1,0 +1,26 @@
+/* ChatWindow.css */
+.chat-window {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chat-window h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .chat-window .list-group-item {
+    border: none;
+    padding: 15px;
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+  }
+  
+  .chat-window .list-group-item:hover {
+    background-color: #e0e0e0;
+  }
+  

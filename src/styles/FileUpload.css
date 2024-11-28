@@ -1,0 +1,33 @@
+/* FileUpload.css */
+.file-upload {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .file-upload .form-label {
+    font-size: 16px;
+  }
+  
+  .file-upload .form-control {
+    margin-bottom: 15px;
+  }
+  
+  .file-upload .alert {
+    margin-top: 15px;
+  }
+  
+  .file-upload button {
+    width: 100%;
+    font-weight: bold;
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .file-upload button:hover {
+    background-color: #218838;
+  }
+  

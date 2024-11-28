@@ -1,0 +1,32 @@
+/* HeaderSection.css */
+.header-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .header-section h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .header-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .header-section .icons-display {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .header-section .icons-display svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .header-section .icons-display svg:hover {
+    transform: scale(1.1);
+  }
+  
