@@ -1,32 +1,132 @@
-/* HeaderSection.css */
+/* Header Section Styling */
+
+
 .header-section {
-    background-color: #f8f9fa;
-    padding: 60px 0;
-    text-align: center;
+  background: linear-gradient(135deg, #2085f1, #92d9ec); /* Gradient background for vibrance */
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  margin-top: 5px;
+  max-width: 80%;  /* Limit the maximum width */
+  width: 50%;  /* Default width on larger screens */
+  margin-left: 30%;  /* Center horizontally */
+  margin-right: auto;  /* Center horizontally */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 91, 255, 0.2);
+  overflow: hidden;
+  transition: margin-left 0.3s ease;
+}
+
+/* Title Styling */
+.header-section h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Paragraph Styling */
+.header-section p {
+  font-size: 18px;
+  color: rgb(245, 230, 230);
+  margin-bottom: 30px;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Icons Container */
+.header-section .icons-display {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Icons Styling */
+.header-section .icons-display svg {
+  font-size: 30px;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Icons Hover Effect */
+.header-section .icons-display svg:hover {
+  transform: scale(1.2);
+  color: #ffcc00;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
+  /* For tablet or medium screens */
+  .header-section {
+    width: 70%;  /* Adjust width for medium screens */
+    padding: 60px 20px;
   }
-  
+
+  /* Adjust heading font size */
   .header-section h1 {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 28px;
   }
-  
+
+  /* Adjust paragraph font size */
   .header-section p {
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 16px;
   }
-  
-  .header-section .icons-display {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
+
+  /* Make icons smaller on medium screens */
   .header-section .icons-display svg {
-    transition: transform 0.3s ease;
+    font-size: 26px;
   }
-  
-  .header-section .icons-display svg:hover {
-    transform: scale(1.1);
+}
+
+@media (max-width: 767px) {
+  /* Adjust header-section for mobile */
+  .header-section {
+    width: 90%;  /* Adjust width to take up most of the screen on small screens */
+    margin-left: 5%;
+    padding: 50px 15px; /* Adjust padding on smaller screens */
   }
-  
+
+  /* Adjust heading font size */
+  .header-section h1 {
+    font-size: 24px;
+  }
+
+  /* Adjust paragraph font size */
+  .header-section p {
+    font-size: 16px;
+  }
+
+  /* Make icons smaller on mobile */
+  .header-section .icons-display svg {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* For extra small screens (mobile phones) */
+  .header-section {
+    width: 95%;  /* Take up almost the entire screen width */
+    padding: 40px 10px;  /* Further reduce padding on very small screens */
+  }
+
+  /* Adjust heading font size */
+  .header-section h1 {
+    font-size: 22px;
+  }
+
+  /* Adjust paragraph font size */
+  .header-section p {
+    font-size: 14px;
+  }
+
+  /* Make icons smaller on very small screens */
+  .header-section .icons-display svg {
+    font-size: 22px;
+  }
+}

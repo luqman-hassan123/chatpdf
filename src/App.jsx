@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import HeaderSection from './components/HeaderSection';
 import ChatPDFLayout from './components/ChatPDFLayout';
-import Modal from './components/Modal';
-import ChatWindow from './components/ChatWindow';
-import ChatInput from './components/ChatInput';
 import { processPDF } from './services/api';
 import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,35 +9,31 @@ import './App.css';
 
 function App() {
   const [pdfFile, setPdfFile] = useState(null);
-  const [chatHistory, setChatHistory] = useState([]);
-  const [isProcessing, setIsProcessing] = useState(false);
   const [processedContent, setProcessedContent] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
+  // Handle file upload
   const handleFileUpload = async (file) => {
     setPdfFile(file);
-    setIsProcessing(true); // Show loader
+    setIsProcessing(true);
 
     try {
-      const extractedText = await processPDF(file); // Simulate API call
+      const extractedText = await processPDF(file); // Call your API
       setProcessedContent(extractedText);
-      setShowModal(true); // Show modal for confirmation (optional)
+      setShowModal(true);
     } catch (error) {
       console.error('Error processing PDF:', error);
     } finally {
-      setIsProcessing(false); // Hide loader
+      setIsProcessing(false);
     }
-  };
-
-  const addMessage = (message) => {
-    setChatHistory([...chatHistory, { user: 'User', message }]);
   };
 
   return (
     <div className="App">
-      <Header />
-      <HeaderSection />
-      <ChatPDFLayout onFileUpload={handleFileUpload} />
+      <Header onFileUpload={handleFileUpload} />
+      <HeaderSection /> {/* Added HeaderSection */}
+      <ChatPDFLayout onFileUpload={handleFileUpload} /> {/* Added ChatPDFLayout */}
 
       {isProcessing && (
         <div className="d-flex justify-content-center my-4">
@@ -57,19 +50,16 @@ function App() {
         </div>
       )}
 
-      {pdfFile && !isProcessing && (
-        <>
-          <ChatWindow chatHistory={chatHistory} />
-          <ChatInput onSendMessage={addMessage} />
-        </>
+      {/* Modal for displaying extracted content */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Extracted Content</h3>
+            <p>{processedContent}</p>
+            <button onClick={() => setShowModal(false)}>Close</button>
+          </div>
+        </div>
       )}
-
-      <Modal
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        title="PDF Content"
-        content={processedContent}
-      />
     </div>
   );
 }

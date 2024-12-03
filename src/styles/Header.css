@@ -1,52 +1,171 @@
-/* Header.css */
+/* General Header Styling */
 .header {
-    background-color: #343a40;
-    padding: 20px;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: linear-gradient(135deg, #2085f1, #92d9ec); /* Beautiful gradient */
+  color: white;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 12px 24px rgba(0, 91, 255, 0.2); /* Smooth shadow effect */
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  height: 100%;
+  z-index: 1000;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease-in-out;
+  width: 250px;
+}
+
+.sidebar.show {
+  left: 0; /* Show when 'show' class is added */
+}
+
+.sidebar-title {
+  margin-top: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Custom Card */
+.custom-card {
+  margin-top: 60px; 
+  width: 240px; /* Slightly larger width for better layout */
+  border-radius: 20px; /* Smooth rounded corners */
+  border: 2px solid rgb(19, 225, 252); /* Bright cyan border */
+  background-color: rgb(255, 255, 255); /* Ensure the card has a clear background */
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.9); /* Subtle shadow for a clean look */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: scale(1.05); /* Slightly more noticeable scale on hover */
+}
+
+/* Upload Form */
+.upload-label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.upload-input {
+  border-radius: 10px;
+  padding: 12px;
+  border: 2px solid #007bff;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 91, 255, 0.2);
+  outline: none;
+}
+
+.upload-btn {
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Mobile Navbar and Sidebar Styles */
+@media (max-width: 768px) {
+  /* Header layout on small screens */
+  .header {
+    flex-direction: column; /* Stack header items vertically */
   }
-  
+
+  /* Sidebar Styling */
   .sidebar {
-    padding: 20px;
-  }
-  
-  .sidebar .sidebar-title {
-    font-size: 28px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .sidebar .sidebar-title .text-danger {
-    font-size: 30px;
-    margin-right: 10px;
-  }
-  
-  .sidebar .sidebar-content h2 {
-    margin-top: 30px;
-    font-size: 22px;
-  }
-  
-  .sidebar .sidebar-content form {
-    margin-top: 15px;
-  }
-  
-  .sidebar .sidebar-content button {
-    width: 100%;
-    font-weight: bold;
-  }
-  
-  .navbar {
+    position: absolute;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 90%;
+    max-width: 300px;
     background-color: #343a40;
-  }
-  
-  .navbar .navbar-brand {
-    font-size: 24px;
-  }
-  
-  .navbar .navbar-nav .nav-link {
     color: white;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: left 0.3s ease-in-out, opacity 0.5s ease, visibility 0s 0.5s;
+    z-index: 1000;
   }
-  
-  .navbar .navbar-nav .nav-link:hover {
-    color: #007bff;
+
+  .sidebar.show {
+    left: 0; /* Show the sidebar */
+    opacity: 1; /* Fade it in */
+    visibility: visible; /* Make it interactable */
+    transition: left 0.3s ease-in-out, opacity 0.5s ease, visibility 0s;
   }
-  
+
+  .content-shift {
+    margin-left: 0; /* Reset margin for content on small screens */
+  }
+
+  /* Navbar */
+  .navbar {
+    display: block; /* Make navbar visible */
+  }
+
+  .navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+}
+
+
+/* Large Screen Styles */
+@media (min-width: 769px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  .content {
+    margin-left: 250px; /* Make space for sidebar */
+  }
+
+  .navbar {
+    display: none; /* Hide navbar on large screens */
+  }
+}
+
+

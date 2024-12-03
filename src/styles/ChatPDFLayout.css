@@ -1,32 +1,151 @@
-/* ChatPDFLayout.css */
+/* Upload Container */
 .upload-container {
-    width: 100%;
-    max-width: 600px;
-    background-color: #f8f9fa;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;  /* Maximum width */
+  background-color: #f8f9fa;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  border: 3px dotted #239dda; /* Dotted border */
+  margin-top: 30px !important; /* Margin to avoid header overlap */
+  margin-left: auto;  /* Center horizontally */
+  margin-right: auto;  /* Center horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Ensure it's not hidden behind other elements */
+  z-index: 10; /* Make sure it's above other elements */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effects */
+.upload-container:hover {
+  border-color: #0056b3; /* Blue border on hover */
+  box-shadow: 0 12px 24px rgb(117, 117, 119); /* Blue blur effect */
+  transform: translateY(-5px) scale(1.05); /* 3D effect */
+}
+
+/* Heading Styling */
+.upload-container h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: rgb(255, 115, 0);
+}
+
+/* File Input Styling */
+.upload-container .file-input {
+  border: 2px solid #4808f7;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  transition: border-color 0.3s ease; /* Smooth focus effect */
+}
+
+.upload-container .file-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Upload Button Styling */
+.upload-container .upload-button {
+  width: 100%;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.upload-container .upload-button:hover {
+  background-color: #0056b3;
+}
+
+.upload-container .upload-button:focus {
+  outline: none;
+}
+
+/* Paragraph Styling */
+.upload-container p {
+  font-size: 18px;
+  color: #888;
+  margin: 20px 0;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For Medium Screens (Tablets and smaller desktops) */
+@media (max-width: 1024px) {
+  .upload-container {
+    width: 80%;  /* Adjust width for medium screens */
+    padding: 35px;
   }
-  
+
   .upload-container h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 22px;
   }
-  
+
   .upload-container .file-input {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    padding: 8px;
   }
-  
-  .upload-button {
-    width: 100%;
-    font-weight: bold;
+
+  .upload-container .upload-button {
+    font-size: 14px;
   }
-  
-  .upload-button:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+
+  .upload-container p {
+    font-size: 16px;
   }
-  
+}
+
+/* For Small Screens (Mobile Devices) */
+@media (max-width: 767px) {
+  .upload-container {
+    width: 90%;  /* Adjust width for small screens */
+    padding: 25px;
+  }
+
+  .upload-container h3 {
+    font-size: 20px;
+  }
+
+  .upload-container .file-input {
+    padding: 6px;
+  }
+
+  .upload-container .upload-button {
+    font-size: 14px;
+  }
+
+  .upload-container p {
+    font-size: 14px;
+  }
+}
+
+/* For Extra Small Screens (Mobile Phones in Portrait) */
+@media (max-width: 480px) {
+  .upload-container {
+    width: 95%;  /* Almost full width on very small screens */
+    padding: 20px;
+  }
+
+  .upload-container h3 {
+    font-size: 18px;
+  }
+
+  .upload-container .file-input {
+    padding: 5px;
+  }
+
+  .upload-container .upload-button {
+    font-size: 12px;
+  }
+
+  .upload-container p {
+    font-size: 12px;
+  }
+}
