@@ -1,22 +1,20 @@
-
-// src/components/ChatWindow.js
 import React from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
-
-function ChatWindow({ chatHistory }) {
+function ChatWindow({ messages }) {
   return (
-    <div className="chat-window mb-4">
-      <h3 className="text-center mb-3">Chat History</h3>
-      <ListGroup variant="flush">
-        {chatHistory.map((chat, index) => (
-          <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
-            <div><strong>{chat.user}:</strong> {chat.message}</div>
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
+    <div className="chat-window" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+      {messages.map((msg, index) => (
+        <div key={index} className={`message ${msg.user === 'User' ? 'user-message' : 'bot-message'}`}>
+          <Card className={`mb-2 ${msg.user === 'User' ? 'bg-primary text-white' : 'bg-light'}`}>
+            <Card.Body>
+              <strong>{msg.user}</strong>: {msg.message}
+            </Card.Body>
+          </Card>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default ChatWindow; 
+export default ChatWindow;

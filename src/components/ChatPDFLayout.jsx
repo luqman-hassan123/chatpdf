@@ -27,7 +27,7 @@ function ChatPDFLayout({ onFileUpload }) {
   return (
     <div className="d-flex">
       <div className="content flex-grow-1 mb-6 d-flex justify-content-center align-items-center">
-        <Container className="text-center">
+        <Container className="text-center container-sm container-lg container-xl">
           <div 
             className="upload-container bg-light p-5 rounded "
             onDragOver={handleDragOver}

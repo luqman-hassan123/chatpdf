@@ -6,3 +6,86 @@
     padding-top: 20px;
   }
   
+
+  /* Custom styles for chat and PDF viewer */
+.pdf-viewer-container {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-section-container {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.output-section {
+  margin-bottom: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Ensure the PDF is fully visible */
+.pdf-viewer-container {
+  max-height: 80vh; /* Adjust this to ensure the PDF is fully visible */
+  overflow: auto;
+  }
+  
+
+
+/* Ensure the chat section input stays below the chat history */
+.chat-section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.chat-input {
+  margin-top: auto; /* Push the input field to the bottom */
+}
+
+
+
+
+.chat-window {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.user-message {
+  background-color: #007bff;
+  color: white;
+  text-align: right;
+}
+
+.bot-message {
+  background-color: #f1f1f1;
+  color: #333;
+  text-align: left;
+}
+
+.chat-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.chat-container .text-secondary {
+  font-size: 0.9rem;
+}
+
+
+
+
