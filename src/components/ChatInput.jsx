@@ -1,27 +1,31 @@
-import React, { useState } from "react";
-import { Button, InputGroup, FormControl } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 function ChatInput({ onSendMessage }) {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const handleSend = () => {
     if (message.trim()) {
       onSendMessage(message);
-      setMessage("");
+      setMessage(''); // Clear input after sending
     }
   };
 
   return (
-    <InputGroup className="mb-3">
-      <FormControl
-        placeholder="Type a message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <Button variant="outline-secondary" onClick={handleSend}>
-        Send
-      </Button>
-    </InputGroup>
+    <div className="chat-input">
+      <Form className="d-flex align-items-center">
+        <Form.Control
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Ask a question about the PDF..."
+          className="me-2" // margin-end for spacing
+        />
+        <Button variant="primary" onClick={handleSend}>
+          Send
+        </Button>
+      </Form>
+    </div>
   );
 }
 

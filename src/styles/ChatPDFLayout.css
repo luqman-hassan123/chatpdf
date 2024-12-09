@@ -6,7 +6,7 @@
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
-  border: 3px dotted #239dda; /* Dotted border */
+  border: 3px dotted #a5a6a7; /* Dotted border */
   margin-top: 30px !important; /* Margin to avoid header overlap */
   margin-left: auto;  /* Center horizontally */
   margin-right: auto;  /* Center horizontally */
@@ -26,16 +26,10 @@
   transform: translateY(-5px) scale(1.05); /* 3D effect */
 }
 
-/* Heading Styling */
-.upload-container h3 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: rgb(255, 115, 0);
-}
+
 
 /* File Input Styling */
 .upload-container .file-input {
-  border: 2px solid #4808f7;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
