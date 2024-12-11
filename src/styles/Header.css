@@ -8,7 +8,7 @@
   align-items: center;
   position: relative;
   box-shadow: 0 12px 24px rgba(0, 91, 255, 0.2); /* Smooth shadow effect */
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   transition: all 0.3s ease;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .sidebar-title {
-  margin-top: 20px;
+  margin-top: 5px;
   font-size: 26px;
   font-weight: 600;
   color: #ffffff;
@@ -45,7 +45,7 @@
 
 /* Custom Card */
 .custom-card {
-  margin-top: 60px; 
+  margin-top: 10px; 
   width: 240px; /* Slightly larger width for better layout */
   border-radius: 20px; /* Smooth rounded corners */
   border: 2px solid rgb(19, 225, 252); /* Bright cyan border */
