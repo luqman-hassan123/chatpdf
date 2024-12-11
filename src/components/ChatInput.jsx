@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { addMessage } from '../redux/slices/chatSlice';
 
-function ChatInput({ onSendMessage }) {
+function ChatInput({ chatId }) {
   const [message, setMessage] = useState('');
+  const dispatch = useDispatch();
 
   const handleSend = () => {
     if (message.trim()) {
-      onSendMessage(message);
-      setMessage(''); // Clear input after sending
+      // Dispatch the action to Redux
+      dispatch(
+        addMessage({
+          chatId, // Associate the message with a specific chat
+          message: {
+            sender: 'User', // Specify the sender
+            text: message, // The message text
+            timestamp: new Date().toISOString(), // Add a timestamp
+          },
+        })
+      );
+      setMessage(''); // Clear the input after sending
     }
   };
 

@@ -1,13 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaFilePdf } from "react-icons/fa";
-import { Form, Button, Navbar, Nav, Container, ListGroup } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Navbar,
+  Nav,
+  Container,
+  ListGroup,
+} from "react-bootstrap";
+import { useSelector } from "react-redux";
 import "../styles/Header.css";
 
-function Header({ chatHistory, onSelectChat }) {
+function Header({ onSelectChat }) {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [pdfFile, setPdfFile] = useState(null); // State for storing the uploaded PDF
 
-  const toggleSidebar = () => {
+  // Fetch messages (chat history) from Redux store
+  const chatHistory = useSelector((state) => state.chat.chatHistory);
+
+
+  const toggleSidebar = () => {s
     setIsSidebarVisible(!isSidebarVisible);
   };
 
@@ -68,16 +80,20 @@ function Header({ chatHistory, onSelectChat }) {
             Chat History
           </h4>
           <ListGroup className="chat-history-list">
-            {chatHistory.map((chat, index) => (
-              <ListGroup.Item
-                key={index}
-                action
-                onClick={() => onSelectChat(index)}
-                className="chat-history-item"
-              >
-                {chat.title || `Chat ${index + 1}`}
-              </ListGroup.Item>
-            ))}
+            {Array.isArray(chatHistory) && chatHistory.length > 0 ? (
+              chatHistory.map((chat, index) => (
+                <ListGroup.Item
+                  key={index}
+                  action
+                  onClick={() => onSelectChat(index)}
+                  className="chat-history-item"
+                >
+                  {chat.text.slice(0, 30) || `Chat ${index + 1}`}...
+                </ListGroup.Item>
+              ))
+            ) : (
+              <ListGroup.Item>No chat history available.</ListGroup.Item> // Fallback message
+            )}
           </ListGroup>
         </div>
       </div>

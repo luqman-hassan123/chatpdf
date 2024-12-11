@@ -1,25 +1,9 @@
 /* App.css */
 .App {
-    font-family: 'Arial', sans-serif;
-    background-color: #f1f1f1;
-    min-height: 100vh;
-    padding-top: 20px;
-  }
-  
-
-  /* Custom styles for chat and PDF viewer */
-.pdf-viewer-container {
-  padding: 15px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.chat-section-container {
-  padding: 15px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  padding-top: 20px;
 }
 
 .output-section {
@@ -29,29 +13,49 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Ensure the PDF is fully visible */
 .pdf-viewer-container {
-  max-height: 80vh; /* Adjust this to ensure the PDF is fully visible */
-  overflow: auto;
-  }
-  
-
-
-/* Ensure the chat section input stays below the chat history */
-.chat-section-container {
+  width: 45% !important; /* Adjust the width as needed */
+  height: calc(100vh - 20px);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center !important; /* Center content horizontally */
+  align-items: center; /* Vertically center the content */
+  margin-left: 15%; /* Remove margin from left side */
+  margin-right: 0; /* Remove margin from right side */
+  padding: 0; /* Remove any padding to ensure no space on sides */
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-viewer-content {
+  width: 100%; /* Ensure content takes full container width */
   height: 100%;
+  display: flex;
+  justify-content: center; /* Align PDF viewer content in the center */
+  align-items: center; /* Vertically center the content */
+}
+
+
+/* Chat section */
+.chat-section-container {
+  padding: 1px; /* Inner padding */
+  background: #f8f9fa; /* Light background */
+  border-left: 1px solid #ddd; /* Divider from PDF viewer */
+  width: 39% !important; /* Occupy 39% of the parent container */
+  height: 100%; /* Full height */
+  border-radius: 8px; /* Rounded corners for aesthetic */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  flex-direction: column; /* Stack chat content vertically */
+  justify-content: space-between; /* Ensure spacing between elements */
 }
 
 .chat-input {
   margin-top: auto; /* Push the input field to the bottom */
 }
-
-
-
 
 .chat-window {
   background-color: #f9f9f9;
@@ -87,5 +91,47 @@
 }
 
 
+/* *******************zoom button **************** */
+.pdf-viewer-container {
+  position: relative; /* Make it a positioning context for absolute children */
+}
+
+.zoom-controls {
+  position: absolute; /* Position relative to the nearest positioned parent */
+  top: 10px; /* Align near the top */
+  right: 60px; /* Align to the right side */
+  z-index: 10; /* Ensure it stays on top of other elements */
+  display: flex; /* Display buttons inline */
+  gap: 5px; /* Space between buttons */
+}
+
+.zoom-controls button {
+  font-size: 12px; /* Small font size */
+  padding: 4px 6px; /* Compact padding */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.zoom-controls button:hover {
+  background-color: #f1f1f1; /* Highlight on hover */
+}
 
 
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pdf-viewer-container {
+    width: 100%; /* Full width on small screens */
+  }
+
+  .chat-section-container {
+    width: 100%; /* Full width on small screens */
+    height: calc(100vh - 20px); /* Adjust the height on smaller screens */
+  }
+}
+
+@media (min-width: 769px) {
+  .pdf-viewer-container {
+    width: 80%; /* Wider on larger screens */
+  }
+}
