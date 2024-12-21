@@ -11,6 +11,7 @@ import {
 import { useSelector } from "react-redux";
 import "../styles/Header.css";
 
+
 function Header({ onSelectChat }) {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [pdfFile, setPdfFile] = useState(null); // State for storing the uploaded PDF
@@ -18,8 +19,7 @@ function Header({ onSelectChat }) {
   // Fetch messages (chat history) from Redux store
   const chatHistory = useSelector((state) => state.chat.chatHistory);
 
-
-  const toggleSidebar = () => {s
+  const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
@@ -31,7 +31,7 @@ function Header({ onSelectChat }) {
     event.preventDefault();
     if (pdfFile) {
       console.log("File uploaded:", pdfFile);
-      // Add your file upload logic here
+      // Add your file upload logic here (e.g., send the file to the backend)
     } else {
       alert("Please select a PDF file.");
     }
@@ -52,11 +52,10 @@ function Header({ onSelectChat }) {
         {/* Upload form */}
         <div className="card card-sm custom-card p-4 mb-4">
           <h4 className="card-title text-center mb-4 text-primary">
-            Upload Your PDF
+            Upload PDF
           </h4>
           <Form onSubmit={handleSubmit} className="upload-form">
             <Form.Group controlId="fileUpload" className="mb-4">
-              <Form.Label className="upload-label">Upload PDF</Form.Label>
               <Form.Control
                 type="file"
                 accept="application/pdf"
@@ -64,10 +63,10 @@ function Header({ onSelectChat }) {
                 className="upload-input"
               />
             </Form.Group>
+            {/* Move the submit button inside the Form */}
             <Button
               type="submit"
-              variant="primary"
-              className="upload-btn w-100"
+              className="upload-btn w-80"
             >
               Upload PDF
             </Button>

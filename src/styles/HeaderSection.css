@@ -2,7 +2,7 @@
 
 
 .header-section {
-  background: linear-gradient(135deg, #2085f1, #92d9ec); /* Gradient background for vibrance */
+  background: linear-gradient(135deg, #ec700b, #92d9ec); /* Gradient background for vibrance */
   padding: 80px 20px;
   text-align: center;
   position: relative;
@@ -22,7 +22,7 @@
 .header-section h1 {
   font-size: 30px;
   font-weight: 700;
-  color: white;
+  color: rgb(231, 115, 20) !important;
   margin-bottom: 10px;
   font-family: 'Arial', sans-serif;
   text-transform: uppercase;
