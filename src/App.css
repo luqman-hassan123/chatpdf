@@ -1,4 +1,3 @@
-/* App.css */
 .App {
   font-family: 'Arial', sans-serif;
   background-color: #f1f1f1;
@@ -115,7 +114,6 @@
 .zoom-controls button:hover {
   background-color: #f1f1f1; /* Highlight on hover */
 }
-
 
 
 /* Responsive Design */

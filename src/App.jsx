@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Spinner, Row, Col, Button } from "react-bootstrap";
-import { Worker, Viewer, defaultLayoutPlugin } from "@react-pdf-viewer/core";
+import { Worker, Viewer } from "@react-pdf-viewer/core";
 import { zoomPlugin } from "@react-pdf-viewer/zoom";
-import "@react-pdf-viewer/core/lib/styles/index.css"; // Import styles
-import "@react-pdf-viewer/zoom/lib/styles/index.css"; // Import zoom styles
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/zoom/lib/styles/index.css";
 import Header from "./components/Header";
 import HeaderSection from "./components/HeaderSection";
 import ChatPDFLayout from "./components/ChatPDFLayout";
@@ -16,7 +16,8 @@ function App() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [chatHistory, setChatHistory] = useState([]);
-  const [userInput, setUserInput] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   const zoomPluginInstance = zoomPlugin();
   const { ZoomIn, ZoomOut, Zoom } = zoomPluginInstance;
@@ -27,12 +28,28 @@ function App() {
     setIsProcessing(true);
 
     try {
-      // Call your API to process the PDF
       setShowModal(true);
     } catch (error) {
       console.error("Error processing PDF:", error);
     } finally {
       setIsProcessing(false);
+    }
+  };
+
+  const handleLoadSuccess = ({ numPages }) => {
+    if (numPages && typeof numPages === "number") {
+      setTotalPages(numPages);
+    } else {
+      console.error("Invalid numPages:", numPages);
+    }
+  };
+
+  const handlePageChange = (event) => {
+    console.log("Page change event:", event);
+    if (event.pageIndex !== undefined) {
+      setCurrentPage(event.pageIndex + 1); // Update the state with the new page
+    } else {
+      console.error("Invalid event structure:", event);
     }
   };
 
@@ -49,6 +66,14 @@ function App() {
               <div className="pdf-viewer-content">
                 <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
                   <div className="zoom-controls">
+                    {/* Page numbers */}
+                    <span className="page-number">
+                      {totalPages > 0
+                        ? `${currentPage || 1}/${totalPages || 1}`
+                        : "Loading..."}
+                    </span>
+
+                    {/* Zoom buttons */}
                     <Button variant="outline-primary">
                       <ZoomOut />
                     </Button>
@@ -62,6 +87,11 @@ function App() {
                   <Viewer
                     fileUrl={URL.createObjectURL(pdfFile)}
                     plugins={[zoomPluginInstance]}
+                    onDocumentLoad={({ doc }) => {
+                      handleLoadSuccess({ numPages: doc.numPages });
+                      setCurrentPage(1); // Set the current page to the first page
+                    }}
+                    onPageChange={handlePageChange}
                   />
                 </Worker>
               </div>

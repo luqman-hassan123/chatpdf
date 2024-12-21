@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Container, Form, Button } from 'react-bootstrap';
+import "../styles/ChatSection.css"
+
 
 function ChatSection({ processedContent }) {
   const [messages, setMessages] = useState([]);
@@ -30,7 +32,7 @@ function ChatSection({ processedContent }) {
     <Container className="mt-4 chat-container">
       <Card className="shadow-lg border-0">
         {/* Chat Header */}
-        <Card.Header className="bg-primary text-white text-center py-3">
+        <Card.Header className="chatSection-title bg-primary text-white text-center py-3">
           Chat with PDF
         </Card.Header>
 

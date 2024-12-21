@@ -32,6 +32,8 @@ function FileUpload({ onFileUpload }) {
             onChange={handleFileChange}
           />
         </Form.Group>
+
+
         {fileName && <p className="mt-2">Selected file: {fileName}</p>}
         {error && <Alert variant="danger">{error}</Alert>}
         <Button variant="primary" className="mt-2" disabled={!file}>

@@ -1,30 +1,64 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { FaFilePdf, FaUpload } from 'react-icons/fa';
-import '../Styles/HeaderSection.css';
 
-function HeaderSection() {
+import React from "react";
+import styled from "styled-components";
+import { FaFilePdf } from "react-icons/fa";
+
+const HeaderSectionContainer = styled.div`
+  background-color: #F5F5F5; /* Light background */
+  padding: 50px 0;
+  text-align: center;
+  margin-left: 11%;
+`;
+
+const HeaderTitle = styled.h1`
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+`;
+
+const HeaderDescription = styled.p`
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+`;
+
+const HighlightText = styled.span`
+  color: #FD6114; /* Purple highlight for "PDF" */
+  font-weight: bold;
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  svg {
+    font-size: 4rem;
+    margin: 0 15px;
+    color: #800080;
+  }
+`;
+
+const HeaderSection = () => {
   return (
-    <div className="header-section bg-light py-5">
-      <Container>
-        <Row className="text-center align-items-center">
-          {/* Column for heading and description */}
-          <Col xs={12} md={6} className="mb-4 mb-md-0">
-            <h1 className="display-5">Welcome to ChatPDF</h1>
-            <p className="lead">Easily upload your PDF files and interact with them like never before.</p>
-          </Col>
-          
-          {/* Column for icons */}
-          <Col xs={12} md={6}>
-            <div className="icons-display">
-              <FaFilePdf size={80} className="text-primary me-3" />
-              <FaUpload size={80} className="text-success" />
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <HeaderSectionContainer>
+      <HeaderTitle>
+        Welcome to <HighlightText>Chat PDF</HighlightText>
+      </HeaderTitle>
+      <HeaderDescription>
+        Easily upload your{" "}
+        <span style={{ color: "#FF6347", fontWeight: "bold" }}>PDF files</span>{" "}
+        and{" "}
+        <span style={{ color: "#FF6347", fontWeight: "bold" }}>interact</span>{" "}
+        with them like never before.
+      </HeaderDescription>
+      {/* <IconContainer>
+        <FaFilePdf />
+      </IconContainer> */}
+    </HeaderSectionContainer>
   );
-}
+};
 
-export default HeaderSection;
+export default HeaderSection;

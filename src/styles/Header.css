@@ -3,13 +3,19 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background: linear-gradient(135deg, #2085f1, #92d9ec); /* Beautiful gradient */
+  background: linear-gradient(135deg, #ff6600, #333); /* Orange to Black gradient */
   color: white;
   align-items: center;
   position: relative;
-  box-shadow: 0 12px 24px rgba(0, 91, 255, 0.2); /* Smooth shadow effect */
   margin-bottom: 20px;
   transition: all 0.3s ease;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
 }
 
 /* Sidebar Styling */
@@ -17,7 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: #333; /* Dark background */
   padding: 20px;
   position: fixed;
   top: 0;
@@ -35,64 +41,94 @@
 
 .sidebar-title {
   margin-top: 5px;
+  background-color: #ffffff;
+  border-radius: 5px;
   font-size: 26px;
   font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 20px;
+  color: #ff6600;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Custom Card */
+/* Modern Custom Card */
 .custom-card {
-  margin-top: 10px; 
-  width: 240px; /* Slightly larger width for better layout */
-  border-radius: 20px; /* Smooth rounded corners */
-  border: 2px solid rgb(19, 225, 252); /* Bright cyan border */
-  background-color: rgb(255, 255, 255); /* Ensure the card has a clear background */
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.9); /* Subtle shadow for a clean look */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Full width for responsiveness */
+  max-width: 320px; /* Set max width for card */
+  margin: 20px auto; /* Center the card and add margin */
+  border-radius: 16px; /* Smooth rounded corners */
+  border: 2px solid #ff6600 !important; 
+  background-color: #1c1c1c; /* Dark background for modern look */
+  color: white; /* Text color */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .custom-card:hover {
   transform: scale(1.05); /* Slightly more noticeable scale on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+  background-color: #333; /* Darker background on hover */
+}
+
+/* Card Title */
+.custom-card .card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ff6600 !important; /* Orange text */
+  margin-bottom: 10px;
+}
+
+/* Card Content */
+.custom-card .card-content {
+  font-size: 1rem;
+  color: #ddd; /* Light text for content */
+  margin-bottom: 20px;
 }
 
 /* Upload Form */
 .upload-label {
   font-size: 18px;
   font-weight: 500;
-  color: #ffffff;
-  margin-bottom: 10px;
+  color: #333; /* Darker label color for readability */
+  margin-bottom: 8px;
+  font-family: 'Arial', sans-serif;
 }
 
 .upload-input {
-  border-radius: 10px;
-  padding: 12px;
-  border: 2px solid #007bff;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-  transition: border 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease;
 }
 
 .upload-input:focus {
-  border-color: #0056b3;
-  box-shadow: 0 0 8px rgba(0, 91, 255, 0.2);
+  border-color: #ff6600 ;
   outline: none;
 }
 
+/* Button Styles */
 .upload-btn {
   font-size: 16px;
+  border-color: #ff6600 !important;
   padding: 12px;
   border-radius: 10px;
-  background-color: #007bff;
+  background-color: #ff6600 !important;
   color: white;
   font-weight: 600;
+  width: 100%;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
 }
 
 .upload-btn:hover {
-  background-color: #0056b3;
+  background-color: #ff8902;
   transform: scale(1.05);
+}
+
+.upload-btn:focus {
+  outline: none;
 }
 
 /* Mobile Navbar and Sidebar Styles */
@@ -100,6 +136,11 @@
   /* Header layout on small screens */
   .header {
     flex-direction: column; /* Stack header items vertically */
+    padding: 1rem; /* Reduce padding */
+  }
+
+  .header h1 {
+    font-size: 1rem !important; /* Adjust title size */
   }
 
   /* Sidebar Styling */
@@ -107,9 +148,9 @@
     position: absolute;
     top: 0;
     left: -250px; /* Initially hidden */
-    width: 90%;
+    width: 80%;
     max-width: 300px;
-    background-color: #343a40;
+    background-color: #333;
     color: white;
     opacity: 0; /* Initially hidden */
     visibility: hidden; /* Initially hidden */
@@ -143,8 +184,13 @@
   .navbar-toggler {
     display: block;
   }
-}
 
+  /* Custom Card Styling for small screens */
+  .custom-card {
+    width: 90%; /* Take up most of the width */
+    max-width: none;
+  }
+}
 
 /* Large Screen Styles */
 @media (min-width: 769px) {
@@ -153,7 +199,7 @@
     top: 0;
     left: 0;
     width: 250px;
-    background-color: #343a40;
+    background-color: #333;
     color: white;
     padding: 20px;
     z-index: 1000;
@@ -166,6 +212,9 @@
   .navbar {
     display: none; /* Hide navbar on large screens */
   }
+
+  /* Adjust Card for larger screens */
+  .custom-card {
+    max-width: 320px; /* Increase max width for larger screens */
+  }
 }
-
-
